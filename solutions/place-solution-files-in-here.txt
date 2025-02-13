@@ -16,3 +16,10 @@ from
 WHERE MONTH(date) BETWEEN 1 AND 6
 GROUP BY product_id
 ORDER BY SUM(cost_in_dollars * units_sold) desc;
+
+4.select city,
+property_type,
+AVG(cast(bathrooms as FLOAT)),
+AVG(cast(bedrooms as FLOAT))
+from airbnb_search_details
+group by city,property_type;
