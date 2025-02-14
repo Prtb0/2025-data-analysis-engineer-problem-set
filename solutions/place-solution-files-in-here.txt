@@ -23,3 +23,9 @@ AVG(cast(bathrooms as FLOAT)),
 AVG(cast(bedrooms as FLOAT))
 from airbnb_search_details
 group by city,property_type;
+
+5.select event_name,
+count(user_id) AS event_count from playbook_events
+where device = 'macbook pro'
+group by event_name
+order by event_count DESC
