@@ -33,3 +33,8 @@ order by event_count DESC
 6.select top 1 company,continent from 
 forbes_global_2010_2014 where sector = 'Financials'
 order by profits desc;
+
+7.select activity_date,pe_description
+from los_angeles_restaurant_health_inspections
+where program_name='STREET CHURROS'
+and score<95
