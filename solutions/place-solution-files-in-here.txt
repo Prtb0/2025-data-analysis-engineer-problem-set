@@ -29,3 +29,7 @@ count(user_id) AS event_count from playbook_events
 where device = 'macbook pro'
 group by event_name
 order by event_count DESC
+
+6.select top 1 company,continent from 
+forbes_global_2010_2014 where sector = 'Financials'
+order by profits desc;
