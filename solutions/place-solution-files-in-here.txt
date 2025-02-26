@@ -38,3 +38,7 @@ order by profits desc;
 from los_angeles_restaurant_health_inspections
 where program_name='STREET CHURROS'
 and score<95
+
+8.select count(worker_id) as no_employees from worker
+where lower(department) LIKE 'admin'
+and MONTH(joining_date) >=4;
