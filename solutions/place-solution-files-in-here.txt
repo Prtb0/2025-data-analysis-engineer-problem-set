@@ -49,13 +49,26 @@ Where month(joining_date) >= 4
 Group by department 
 Order by COUNT(worker_id) DESC;
 
-10.select c.first_name,o.order_date,o.order_details,
+10.select c.first_name,c.last_name,c.city,o.order_details from customers as c
+left join orders as o on  o.cust_id = c.id 
+order by c.first_name,o.order_details
+
+11.10.select c.first_name,o.order_date,o.order_details,
 o.total_order_cost from customers as c join orders as o 
 on c.id = o.cust_id
 where c.first_name IN ('jill','EVA')
 order by cust_id 
 
-
-10.select c.first_name,c.last_name,c.city,o.order_details from customers as c
-left join orders as o on  o.cust_id = c.id 
-order by c.first_name,o.order_details
+12.SELECT 
+    e.department,
+    e.first_name,
+    e.salary, 
+    d.avg_salary
+FROM 
+    employee e
+JOIN 
+    (SELECT department, AVG(salary) AS avg_salary
+     FROM employee 
+     GROUP BY department) d
+ON e.department = d.department
+ORDER BY e.department;
