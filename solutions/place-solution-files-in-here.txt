@@ -7,7 +7,7 @@ group by client_id, MONTH(time_id);
 2.SELECT CONVERT(varchar(7), shipment_date, 120) AS year_month,
        COUNT(DISTINCT CONCAT(shipment_id, sub_id))
 FROM amazon_shipment
-GROUP BY CONVERT(varchar(7), shipment_date, 120)
+GROUP BY CONVERT(varchar(7), shipment_date, 120);
 
 3.select  
     TOP 5 product_id, SUM(cost_in_dollars * units_sold) AS Revenue
@@ -28,7 +28,7 @@ group by city,property_type;
 count(user_id) AS event_count from playbook_events
 where device = 'macbook pro'
 group by event_name
-order by event_count DESC
+order by event_count DESC;
 
 6.select top 1 company,continent from 
 forbes_global_2010_2014 where sector = 'Financials'
@@ -37,7 +37,7 @@ order by profits desc;
 7.select activity_date,pe_description
 from los_angeles_restaurant_health_inspections
 where program_name='STREET CHURROS'
-and score<95
+and score<95;
 
 8.select count(worker_id) as no_employees from worker
 where lower(department) LIKE 'admin'
@@ -51,13 +51,13 @@ Order by COUNT(worker_id) DESC;
 
 10.select c.first_name,c.last_name,c.city,o.order_details from customers as c
 left join orders as o on  o.cust_id = c.id 
-order by c.first_name,o.order_details
+order by c.first_name,o.order_details;
 
 11.10.select c.first_name,o.order_date,o.order_details,
 o.total_order_cost from customers as c join orders as o 
 on c.id = o.cust_id
 where c.first_name IN ('jill','EVA')
-order by cust_id 
+order by cust_id;
 
 12.SELECT 
     e.department,
@@ -72,3 +72,15 @@ JOIN
      GROUP BY department) d
 ON e.department = d.department
 ORDER BY e.department;
+
+13.select distinct home_library_code from library_usage
+where notice_preference_definition = 'email'and provided_email_address = '0'and
+circulation_active_year = 2016;
+
+14.select employeename,basepay from sf_public_salaries
+where jobtitle like '%CAPTAIN%POLICE%';
+
+15.select count (id) as n_occerence,artist from spotify_worldwide_daily_song_ranking
+group by artist 
+order by count (id) desc;
+
