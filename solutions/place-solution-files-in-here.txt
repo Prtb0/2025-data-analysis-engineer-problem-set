@@ -84,3 +84,28 @@ where jobtitle like '%CAPTAIN%POLICE%';
 group by artist 
 order by count (id) desc;
 
+16.select * from lyft_drivers
+where yearly_salary <= 30000 or yearly_salary >=70000
+
+17.SELECT fe.location,
+       avg(CAST (popularity AS float)) avg_popularity
+FROM facebook_employees fe
+JOIN facebook_hack_survey f ON f.employee_id = fe.id
+GROUP BY fe.location
+
+18.SELECT DISTINCT
+    p.*
+FROM
+    facebook_posts p
+INNER JOIN
+    facebook_reactions r 
+ON
+    p.post_id = r.post_id AND 
+    r.reaction = 'heart'
+
+19.SELECT
+    count(movie) AS n_movies_by_abi
+FROM oscar_nominees
+WHERE 
+    nominee = 'Abigail Breslin'
+
