@@ -109,3 +109,16 @@ FROM oscar_nominees
 WHERE 
     nominee = 'Abigail Breslin'
 
+20.SELECT hotel_name,
+       reviewer_score,
+       COUNT(*) AS count
+FROM hotel_reviews
+WHERE hotel_name = 'Hotel Arena'
+GROUP BY hotel_name, reviewer_score;
+
+21.SELECT bike_number,
+       MAX(end_time) AS last_used
+FROM dc_bikeshare_q1_2012
+GROUP BY bike_number
+ORDER BY last_used DESC
+
