@@ -122,3 +122,22 @@ FROM dc_bikeshare_q1_2012
 GROUP BY bike_number
 ORDER BY last_used DESC
 
+28.WITH cte AS (
+    SELECT
+        CONCAT(user_firstname, ' ', user_lastname) AS username,
+        COUNT(DISTINCT video_id) AS video_count
+    FROM
+        user_flags f
+        JOIN flag_review r ON f.flag_id = r.flag_id
+    WHERE
+        reviewed_outcome = 'approved'
+    GROUP BY
+        CONCAT(user_firstname, ' ', user_lastname)
+)
+SELECT
+    username
+FROM
+    cte
+WHERE
+    video_count = (SELECT MAX(video_count) FROM cte);
+
